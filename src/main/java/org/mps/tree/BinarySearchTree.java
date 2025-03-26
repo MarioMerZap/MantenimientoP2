@@ -8,25 +8,58 @@ public class BinarySearchTree<T> implements BinarySearchTreeStructure<T> {
     private BinarySearchTree<T> left;
     private BinarySearchTree<T> right;
 
+    public String render() {
+        String render = "";
+
+        if (value != null) {
+            render += value.toString();
+        }
+
+        if (left != null || right != null) {
+            render += "(";
+            if (left != null) {
+                render += left.render();
+            }
+            render += ",";
+            if (right != null) {
+                render += right.render();
+            }
+            render += ")";
+        }
+
+        return render;
+    }
+
     public BinarySearchTree(Comparator<T> comparator) {
         this.comparator = comparator;
         this.value = null;
         this.left = null;
         this.right = null;
     }
-
+    
     @Override
-    public void insert(T value) {
+    public void insert(T value) throws BinarySearchTreeException {
         if (this.value == null) {
             this.value = value;
         } else {
-            int cmp = comparator.compare(value, this.value);
-            if (cmp < 0) {
-                if (left == null) left = new BinarySearchTree<>(comparator);
-                left.insert(value);
-            } else if (cmp > 0) {
-                if (right == null) right = new BinarySearchTree<>(comparator);
-                right.insert(value);
+            int comparison = this.comparator.compare(value, this.value);
+
+            if (comparison < 0) { 
+                if (this.left == null) { 
+                    this.left = new BinarySearchTree<>(this.comparator);
+                    this.left.value = value;
+                } else {
+                    this.left.insert(value);
+                }
+            } else if (comparison == 0) {
+                throw new BinarySearchTreeException("Ese número ya está insertado");
+            } else { // Insertar en la derecha
+                if (this.right == null) { // Crear el subárbol derecho si es null
+                    this.right = new BinarySearchTree<>(this.comparator);
+                    this.right.value = value;
+                } else {
+                    this.right.insert(value);
+                }
             }
         }
     }

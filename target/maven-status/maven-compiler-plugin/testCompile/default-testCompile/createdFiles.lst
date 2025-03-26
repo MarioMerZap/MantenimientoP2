@@ -1,0 +1,8 @@
+org\mps\tree\BinarySearchTreeTest$TestsContains.class
+org\mps\tree\BinarySearchTreeTest$NodoHojaTest.class
+org\mps\tree\BinarySearchTreeTest$InsertsTest.class
+org\mps\tree\BinarySearchTreeTest$TestsSize.class
+org\mps\tree\BinarySearchTreeTest$TestsRemove.class
+org\mps\tree\BinarySearchTreeTest$TestMinimoMaximo.class
+org\mps\tree\BinarySearchTreeTest$TestsDepth.class
+org\mps\tree\BinarySearchTreeTest.class
