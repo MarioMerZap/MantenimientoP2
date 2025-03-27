@@ -436,7 +436,64 @@ public class BinarySearchTreeTest {
             // Assert
             assertEquals(4, resultado); // Profundidad 4 debido al subárbol izquierdo desbalanceado
         }
+    
+    @Nested
+    @DisplayName("Pruebas de inOrder y balance")
+    class TestsInOrderYBalance {
         
+        @Test
+        @DisplayName("El método inOrder() devuelve los valores en orden ascendente")
+        public void inOrderDevuelveValoresOrdenados() {
+            arbol.insert(10);
+            arbol.insert(5);
+            arbol.insert(15);
+            arbol.insert(2);
+            arbol.insert(7);
+            
+            List<Integer> resultado = arbol.inOrder();
+            
+            assertEquals(Arrays.asList(2, 5, 7, 10, 15), resultado);
+        }
+        
+        @Test
+        @DisplayName("El método inOrder() devuelve una lista vacía si el árbol está vacío")
+        public void inOrderDevuelveListaVaciaSiArbolVacio() {
+            List<Integer> resultado = arbol.inOrder();
+            
+            assertTrue(resultado.isEmpty());
+        }
+        
+        @Test
+        @DisplayName("El método balance() convierte el árbol en un árbol balanceado")
+        public void balanceConvierteArbolEnBalanceado() {
+            arbol.insert(10);
+            arbol.insert(5);
+            arbol.insert(15);
+            arbol.insert(2);
+            arbol.insert(7);
+            arbol.insert(12);
+            arbol.insert(17);
+            
+            arbol.balance();
+            
+            int profundidad = arbol.depth();
+            
+            assertEquals(3, profundidad); // Un árbol balanceado debería tener profundidad óptima
+        }
+        
+        @Test
+        @DisplayName("El método balance() no modifica un árbol ya balanceado")
+        public void balanceNoModificaArbolYaBalanceado() {
+            arbol.insert(10);
+            arbol.insert(5);
+            arbol.insert(15);
+            
+            arbol.balance();
+            
+            assertEquals("10(5,15)", arbol.render());
+        }
+    }
+
 }
 
 }
