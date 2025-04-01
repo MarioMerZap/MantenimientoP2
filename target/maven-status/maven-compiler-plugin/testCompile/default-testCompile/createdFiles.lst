@@ -1,4 +1,5 @@
 org\mps\tree\BinarySearchTreeTest$TestsContains.class
+org\mps\tree\BinarySearchTreeTest$TestsDepth$removeValue.class
 org\mps\tree\BinarySearchTreeTest$NodoHojaTest.class
 org\mps\tree\BinarySearchTreeTest$TestsDepth$TestsInOrderYBalance.class
 org\mps\tree\BinarySearchTreeTest$InsertsTest.class

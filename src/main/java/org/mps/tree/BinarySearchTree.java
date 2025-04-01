@@ -166,40 +166,51 @@ public class BinarySearchTree<T> implements BinarySearchTreeStructure<T> {
      *
      * @return a List of all the values of the tree in order
      */
-    List<T> inOrder(){
+    List<T> inOrder() {
         List<T> list = new ArrayList<>();
+        if (this.value == null) return list; // Manejo de árbol vacío
         inOrderTraversal(this, list);
         return list;
     }
-
-    private void inOrderTraversal(BinarySearchTree<T> node, List<T> list){
-        if (node == null && node.value == null) return;
-            inOrderTraversal(node.left, list);
-            list.add(node.value);
-            inOrderTraversal(node.right, list);
+    
+    private void inOrderTraversal(BinarySearchTree<T> node, List<T> list) {
+        if (node == null || node.value == null) return; // Corrección de la condición
+        inOrderTraversal(node.left, list);
+        list.add(node.value);
+        inOrderTraversal(node.right, list);
     }
+    
 
     /**
      * Balance the binary search tree. Making the depth of the
      * left and right subtrees of every node differ by at most one.
      */
-    void balance(){
+    void balance() {
         List<T> list = inOrder();
+        if (list.isEmpty()) return; // Manejo de árbol vacío
         clearTree();
         balanceTree(list, 0, list.size() - 1);
     }
+    
+    private void balanceTree(List<T> list, int start, int end) {
+        if (start > end) return;
+        int mid = (start + end) / 2;
+        
+        // Asegurar que el árbol está correctamente reconstruido
+        if (this.value == null) {
+            this.value = list.get(mid);
+        } else {
+            insert(list.get(mid));
+        }
+    
+        balanceTree(list, start, mid - 1);
+        balanceTree(list, mid + 1, end);
+    }
+    
 
     void clearTree(){
         this.value = null;
         this.left = null;
         this.right = null;
-    }
-
-    void balanceTree(List<T> list, int start, int end){
-        if (start > end) return;
-        int mid = (start + end) / 2;
-        insert(list.get(mid));
-        balanceTree(list, start, mid - 1);
-        balanceTree(list, mid + 1, end);
     }
 }
