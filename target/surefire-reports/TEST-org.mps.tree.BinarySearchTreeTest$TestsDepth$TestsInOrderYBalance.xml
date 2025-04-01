@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" version="3.0.2" name="org.mps.tree.BinarySearchTreeTest$TestMinimoMaximo" time="0.007" tests="4" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" version="3.0.2" name="org.mps.tree.BinarySearchTreeTest$TestsDepth$TestsInOrderYBalance" time="0.032" tests="8" errors="4" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="23"/>
     <property name="sun.cpu.isalist" value="amd64"/>
@@ -58,8 +58,67 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="67.0"/>
   </properties>
-  <testcase name="minimoDevuelveElValorMasPequeno" classname="org.mps.tree.BinarySearchTreeTest$TestMinimoMaximo" time="0.0"/>
-  <testcase name="maximoDevuelveElValorMasGrande" classname="org.mps.tree.BinarySearchTreeTest$TestMinimoMaximo" time="0.0"/>
-  <testcase name="minimumLanzaExcepcionSiValorNulo" classname="org.mps.tree.BinarySearchTreeTest$TestMinimoMaximo" time="0.002"/>
-  <testcase name="maximumLanzaExcepcionSiValorNulo" classname="org.mps.tree.BinarySearchTreeTest$TestMinimoMaximo" time="0.002"/>
+  <testcase name="depthDevuelveUnoSiArbolTieneSoloRaiz" classname="org.mps.tree.BinarySearchTreeTest$TestsDepth" time="0.042"/>
+  <testcase name="depthDevuelveProfundidadCorrectaEnArbolBalanceado" classname="org.mps.tree.BinarySearchTreeTest$TestsDepth" time="0.001"/>
+  <testcase name="depthDevuelveProfundidadCorrectaEnArbolDesbalanceado" classname="org.mps.tree.BinarySearchTreeTest$TestsDepth" time="0.001"/>
+  <testcase name="depthDevuelveCeroSiArbolEstaVacio" classname="org.mps.tree.BinarySearchTreeTest$TestsDepth" time="0.002"/>
+  <testcase name="balanceNoModificaArbolYaBalanceado" classname="org.mps.tree.BinarySearchTreeTest$TestsDepth$TestsInOrderYBalance" time="0.005">
+    <error message="Cannot read field &quot;value&quot; because &quot;node&quot; is null" type="java.lang.NullPointerException"><![CDATA[java.lang.NullPointerException: Cannot read field "value" because "node" is null
+	at org.mps.tree.BinarySearchTree.inOrderTraversal(BinarySearchTree.java:176)
+	at org.mps.tree.BinarySearchTree.inOrderTraversal(BinarySearchTree.java:177)
+	at org.mps.tree.BinarySearchTree.inOrderTraversal(BinarySearchTree.java:177)
+	at org.mps.tree.BinarySearchTree.inOrder(BinarySearchTree.java:171)
+	at org.mps.tree.BinarySearchTree.balance(BinarySearchTree.java:187)
+	at org.mps.tree.BinarySearchTreeTest$TestsDepth$TestsInOrderYBalance.balanceNoModificaArbolYaBalanceado(BinarySearchTreeTest.java:621)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+]]></error>
+  </testcase>
+  <testcase name="inOrderDevuelveListaVaciaSiArbolVacio" classname="org.mps.tree.BinarySearchTreeTest$TestsDepth$TestsInOrderYBalance" time="0.003">
+    <error message="Cannot read field &quot;value&quot; because &quot;node&quot; is null" type="java.lang.NullPointerException"><![CDATA[java.lang.NullPointerException: Cannot read field "value" because "node" is null
+	at org.mps.tree.BinarySearchTree.inOrderTraversal(BinarySearchTree.java:176)
+	at org.mps.tree.BinarySearchTree.inOrderTraversal(BinarySearchTree.java:177)
+	at org.mps.tree.BinarySearchTree.inOrder(BinarySearchTree.java:171)
+	at org.mps.tree.BinarySearchTreeTest$TestsDepth$TestsInOrderYBalance.inOrderDevuelveListaVaciaSiArbolVacio(BinarySearchTreeTest.java:591)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+]]></error>
+  </testcase>
+  <testcase name="inOrderDevuelveValoresOrdenados" classname="org.mps.tree.BinarySearchTreeTest$TestsDepth$TestsInOrderYBalance" time="0.001">
+    <error message="Cannot read field &quot;value&quot; because &quot;node&quot; is null" type="java.lang.NullPointerException"><![CDATA[java.lang.NullPointerException: Cannot read field "value" because "node" is null
+	at org.mps.tree.BinarySearchTree.inOrderTraversal(BinarySearchTree.java:176)
+	at org.mps.tree.BinarySearchTree.inOrderTraversal(BinarySearchTree.java:177)
+	at org.mps.tree.BinarySearchTree.inOrderTraversal(BinarySearchTree.java:177)
+	at org.mps.tree.BinarySearchTree.inOrderTraversal(BinarySearchTree.java:177)
+	at org.mps.tree.BinarySearchTree.inOrder(BinarySearchTree.java:171)
+	at org.mps.tree.BinarySearchTreeTest$TestsDepth$TestsInOrderYBalance.inOrderDevuelveValoresOrdenados(BinarySearchTreeTest.java:583)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+]]></error>
+  </testcase>
+  <testcase name="balanceConvierteArbolEnBalanceado" classname="org.mps.tree.BinarySearchTreeTest$TestsDepth$TestsInOrderYBalance" time="0.002">
+    <error message="Cannot read field &quot;value&quot; because &quot;node&quot; is null" type="java.lang.NullPointerException"><![CDATA[java.lang.NullPointerException: Cannot read field "value" because "node" is null
+	at org.mps.tree.BinarySearchTree.inOrderTraversal(BinarySearchTree.java:176)
+	at org.mps.tree.BinarySearchTree.inOrderTraversal(BinarySearchTree.java:177)
+	at org.mps.tree.BinarySearchTree.inOrderTraversal(BinarySearchTree.java:177)
+	at org.mps.tree.BinarySearchTree.inOrderTraversal(BinarySearchTree.java:177)
+	at org.mps.tree.BinarySearchTree.inOrder(BinarySearchTree.java:171)
+	at org.mps.tree.BinarySearchTree.balance(BinarySearchTree.java:187)
+	at org.mps.tree.BinarySearchTreeTest$TestsDepth$TestsInOrderYBalance.balanceConvierteArbolEnBalanceado(BinarySearchTreeTest.java:607)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+]]></error>
+  </testcase>
 </testsuite>

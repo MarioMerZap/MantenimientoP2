@@ -1,8 +1,10 @@
 package org.mps.tree;
 
 import static org.junit.jupiter.api.Assertions.*;
-
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Comparator;
+import java.util.List;
 
 import org.junit.jupiter.api.*;
 
@@ -331,6 +333,94 @@ public class BinarySearchTreeTest {
             //Assert
             assertEquals("10(5,15)", arbol.render());
         }
+
+        @Test
+		@DisplayName("removeBranch elimina un nodo hoja")
+		public void removeBranch_EliminaNodoHoja() {
+			// Arrange
+			arbol.insert(10);
+			arbol.insert(5);
+
+			// Act
+			arbol.removeBranch(5);
+
+			// Assert
+			assertEquals("10", arbol.render());
+		}
+
+		@Test
+		@DisplayName("removeBranch elimina un nodo con un solo hijo derecho")
+		public void removeBranch_EliminaNodoConUnHijoDerecho() {
+			// Arrange
+			arbol.insert(10);
+			arbol.insert(15);
+
+			// Act
+			arbol.removeBranch(10);
+
+			// Assert
+			assertEquals("15", arbol.render());
+		}
+
+        @Test
+		@DisplayName("removeBranch elimina la raíz cuando solo tiene un hijo izquierdo")
+		public void removeBranch_EliminaRaizConUnHijoIzquierdo() {
+			// Arrange
+			arbol.insert(10);
+			arbol.insert(5);
+
+			// Act
+			arbol.removeBranch(10);
+
+			// Assert
+			assertEquals("5", arbol.render());
+		}
+
+		@Test
+		@DisplayName("removeBranch elimina la raíz cuando solo tiene un hijo derecho")
+		public void removeBranch_EliminaRaizConUnHijoDerecho() {
+			// Arrange
+			arbol.insert(10);
+			arbol.insert(15);
+
+			// Act
+			arbol.removeBranch(10);
+
+			// Assert
+			assertEquals("15", arbol.render());
+		}
+
+		@Test
+		@DisplayName("removeBranch elimina un nodo con dos hijos, donde el sucesor inmediato es el hijo derecho")
+		public void removeBranch_EliminaNodoConDosHijos_SucesorInmediato() {
+			// Arrange
+			arbol.insert(10);
+			arbol.insert(5);
+			arbol.insert(15);
+			arbol.insert(12); // Sucesor inmediato de 10
+			arbol.insert(17);
+
+			// Act
+			arbol.removeBranch(10);
+
+			// Assert
+			assertEquals("12(5,15(,17))", arbol.render());
+		}
+
+		@Test
+		@DisplayName("removeBranch elimina un nodo que es hijo derecho de su padre")
+		public void removeBranch_EliminaHijoDerecho() {
+			// Arrange
+			arbol.insert(10);
+			arbol.insert(15); // Nodo que será eliminado y es hijo derecho
+
+			// Act
+			arbol.removeBranch(15);
+
+			// Assert
+			assertEquals("10", arbol.render());
+		}
+
     }
 
     @Nested
@@ -436,7 +526,90 @@ public class BinarySearchTreeTest {
             // Assert
             assertEquals(4, resultado); // Profundidad 4 debido al subárbol izquierdo desbalanceado
         }
-    
+    @Nested
+	@DisplayName("Pruebas para removeValue")
+	class removeValuePrueba {
+
+		@Test
+		@DisplayName("removeValue lanza excepción si el valor no esta en el arbol")
+		public void removeValue_LanzaExcepcionSiValorNoEstaEnArbol() {
+			assertThrows(BinarySearchTreeException.class, () -> arbol.removeValue(10));
+		}
+
+		@Test
+		@DisplayName("removeValue elimina correctamente un nodo hoja")
+		public void removeValue_EliminaNodoHoja() {
+			// Arrange
+			arbol.insert(10);
+			arbol.insert(5);
+
+			// Act
+			arbol.removeValue(5);
+
+			// Assert
+			assertEquals("10", arbol.render());
+		}
+
+		@Test
+		@DisplayName("removeValue elimina correctamente un nodo con un hijo")
+		public void removeValue_EliminaNodoConUnHijo() {
+			// Arrange
+			arbol.insert(10);
+			arbol.insert(5);
+			arbol.insert(7);
+
+			// Act
+			arbol.removeValue(5);
+
+			// Assert
+			assertEquals("10(7,)", arbol.render());
+		}
+
+
+	}
+
+    @Nested
+	@DisplayName("Pruebas para removeValue")
+	class removeValue{
+
+		@Test
+		@DisplayName("removeValue lanza excepción si el valor no esta en el arbol")
+		public void removeValue_LanzaExcepcionSiValorNoEstaEnArbol() {
+			assertThrows(BinarySearchTreeException.class, () -> arbol.removeValue(10));
+		}
+
+		@Test
+		@DisplayName("removeValue elimina correctamente un nodo hoja")
+		public void removeValue_EliminaNodoHoja() {
+			// Arrange
+			arbol.insert(10);
+			arbol.insert(5);
+
+			// Act
+			arbol.removeValue(5);
+
+			// Assert
+			assertEquals("10", arbol.render());
+		}
+
+		@Test
+		@DisplayName("removeValue elimina correctamente un nodo con un hijo")
+		public void removeValue_EliminaNodoConUnHijo() {
+			// Arrange
+			arbol.insert(10);
+			arbol.insert(5);
+			arbol.insert(7);
+
+			// Act
+			arbol.removeValue(5);
+
+			// Assert
+			assertEquals("10(7,)", arbol.render());
+		}
+
+
+	}
+
     @Nested
     @DisplayName("Pruebas de inOrder y balance")
     class TestsInOrderYBalance {

@@ -1,0 +1,59 @@
+-------------------------------------------------------------------------------
+Test set: org.mps.tree.BinarySearchTreeTest$TestsDepth$TestsInOrderYBalance
+-------------------------------------------------------------------------------
+Tests run: 8, Failures: 0, Errors: 4, Skipped: 0, Time elapsed: 0.032 s <<< FAILURE! -- in org.mps.tree.BinarySearchTreeTest$TestsDepth$TestsInOrderYBalance
+org.mps.tree.BinarySearchTreeTest$TestsDepth$TestsInOrderYBalance.balanceNoModificaArbolYaBalanceado -- Time elapsed: 0.005 s <<< ERROR!
+java.lang.NullPointerException: Cannot read field "value" because "node" is null
+	at org.mps.tree.BinarySearchTree.inOrderTraversal(BinarySearchTree.java:176)
+	at org.mps.tree.BinarySearchTree.inOrderTraversal(BinarySearchTree.java:177)
+	at org.mps.tree.BinarySearchTree.inOrderTraversal(BinarySearchTree.java:177)
+	at org.mps.tree.BinarySearchTree.inOrder(BinarySearchTree.java:171)
+	at org.mps.tree.BinarySearchTree.balance(BinarySearchTree.java:187)
+	at org.mps.tree.BinarySearchTreeTest$TestsDepth$TestsInOrderYBalance.balanceNoModificaArbolYaBalanceado(BinarySearchTreeTest.java:621)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+
+org.mps.tree.BinarySearchTreeTest$TestsDepth$TestsInOrderYBalance.inOrderDevuelveListaVaciaSiArbolVacio -- Time elapsed: 0.003 s <<< ERROR!
+java.lang.NullPointerException: Cannot read field "value" because "node" is null
+	at org.mps.tree.BinarySearchTree.inOrderTraversal(BinarySearchTree.java:176)
+	at org.mps.tree.BinarySearchTree.inOrderTraversal(BinarySearchTree.java:177)
+	at org.mps.tree.BinarySearchTree.inOrder(BinarySearchTree.java:171)
+	at org.mps.tree.BinarySearchTreeTest$TestsDepth$TestsInOrderYBalance.inOrderDevuelveListaVaciaSiArbolVacio(BinarySearchTreeTest.java:591)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+
+org.mps.tree.BinarySearchTreeTest$TestsDepth$TestsInOrderYBalance.inOrderDevuelveValoresOrdenados -- Time elapsed: 0.001 s <<< ERROR!
+java.lang.NullPointerException: Cannot read field "value" because "node" is null
+	at org.mps.tree.BinarySearchTree.inOrderTraversal(BinarySearchTree.java:176)
+	at org.mps.tree.BinarySearchTree.inOrderTraversal(BinarySearchTree.java:177)
+	at org.mps.tree.BinarySearchTree.inOrderTraversal(BinarySearchTree.java:177)
+	at org.mps.tree.BinarySearchTree.inOrderTraversal(BinarySearchTree.java:177)
+	at org.mps.tree.BinarySearchTree.inOrder(BinarySearchTree.java:171)
+	at org.mps.tree.BinarySearchTreeTest$TestsDepth$TestsInOrderYBalance.inOrderDevuelveValoresOrdenados(BinarySearchTreeTest.java:583)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+
+org.mps.tree.BinarySearchTreeTest$TestsDepth$TestsInOrderYBalance.balanceConvierteArbolEnBalanceado -- Time elapsed: 0.002 s <<< ERROR!
+java.lang.NullPointerException: Cannot read field "value" because "node" is null
+	at org.mps.tree.BinarySearchTree.inOrderTraversal(BinarySearchTree.java:176)
+	at org.mps.tree.BinarySearchTree.inOrderTraversal(BinarySearchTree.java:177)
+	at org.mps.tree.BinarySearchTree.inOrderTraversal(BinarySearchTree.java:177)
+	at org.mps.tree.BinarySearchTree.inOrderTraversal(BinarySearchTree.java:177)
+	at org.mps.tree.BinarySearchTree.inOrder(BinarySearchTree.java:171)
+	at org.mps.tree.BinarySearchTree.balance(BinarySearchTree.java:187)
+	at org.mps.tree.BinarySearchTreeTest$TestsDepth$TestsInOrderYBalance.balanceConvierteArbolEnBalanceado(BinarySearchTreeTest.java:607)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+
